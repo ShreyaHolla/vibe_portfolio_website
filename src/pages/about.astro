@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout
+  title="About – Shreya V Holla"
+  description="Learn more about Shreya V Holla – designer & developer focused on thoughtful, minimal digital products."
+>
+  <section class="section" aria-labelledby="about-heading">
+    <div class="container stack-lg">
+      <header>
+        <p class="hero-kicker">About</p>
+        <h1 id="about-heading" class="section-heading">Behind the portfolio</h1>
+        <p class="section-subtext">
+          This is placeholder copy about Shreya. Swap it with your story: how you
+          think about design, why you build the way you do, and what you value in
+          collaborations.
+        </p>
+      </header>
+
+      <div class="about-grid">
+        <div class="stack-lg">
+          <div class="surface">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel
+              porttitor nunc. Vivamus posuere justo mauris, quis facilisis lorem
+              vehicula eu. Phasellus hendrerit nisl id dolor dignissim, vitae
+              tristique sem tempor.
+            </p>
+            <p>
+              Integer posuere, sapien a ultrices volutpat, nibh leo molestie
+              sapien, vitae lacinia sem felis vel mauris. Donec ac urna a arcu
+              finibus consectetur. Donec ultricies augue sed sapien mattis,
+              gravida aliquam erat malesuada.
+            </p>
+            <p>
+              Use this section to talk about what lights you up: thoughtful
+              typography, systems thinking, collaboration, or anything else that
+              feels like you.
+            </p>
+          </div>
+
+          <section aria-labelledby="skills-heading">
+            <h2 id="skills-heading" class="section-heading" style="font-size: 1.4rem;">
+              Skills &amp; focus
+            </h2>
+            <p class="section-subtext">
+              A quick snapshot of the spaces you like to work in.
+            </p>
+
+            <div class="tag-list" style="margin-top: 1rem;">
+              <span class="tag">Product design</span>
+              <span class="tag">Interface design</span>
+              <span class="tag">Design systems</span>
+              <span class="tag">Frontend development</span>
+              <span class="tag">Prototyping</span>
+              <span class="tag">Accessibility-minded</span>
+            </div>
+          </section>
+        </div>
+
+        <aside aria-label="Portrait placeholder">
+          <div class="about-photo" role="img" aria-label="Placeholder portrait area">
+            <div class="about-photo-label">
+              Future photo of Shreya lives here.
+            </div>
+          </div>
+
+          <section
+            aria-labelledby="availability-heading"
+            style="margin-top: 1.8rem;"
+          >
+            <h2 id="availability-heading" class="section-heading" style="font-size: 1.2rem;">
+              Currently open to
+            </h2>
+            <ul style="margin: 0.8rem 0 0; padding-left: 1.1rem; font-size: 0.95rem;">
+              <li>Thoughtful product teams and studios</li>
+              <li>Independent client collaborations</li>
+              <li>Speaking, teaching, and mentoring</li>
+            </ul>
+
+            <div style="margin-top: 1.4rem;">
+              <Button href="mailto:hello@example.com">Start a conversation</Button>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
+

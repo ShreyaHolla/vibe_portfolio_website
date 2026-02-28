@@ -1,0 +1,79 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-meta">
+      © {new Date().getFullYear()} Shreya V Holla. All rights reserved.
+    </p>
+
+    <div class="footer-links" aria-label="Social links">
+      <a href="https://example.com" target="_blank" rel="noreferrer" class="footer-link">
+        Behance
+      </a>
+      <a href="https://example.com" target="_blank" rel="noreferrer" class="footer-link">
+        Dribbble
+      </a>
+      <a href="https://example.com" target="_blank" rel="noreferrer" class="footer-link">
+        GitHub
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 640px) {
+    .footer-inner {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .footer-meta {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .footer-link {
+    position: relative;
+    color: var(--color-text-secondary);
+    padding-bottom: 0.1rem;
+  }
+
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.1rem;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-text);
+    transition: width 160ms ease;
+  }
+
+  .footer-link:hover {
+    color: var(--color-text);
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+</style>
+

@@ -1,0 +1,105 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  link: string;
+  role?: string;
+  year?: string;
+}
+
+const { title, description, link, role, year } = Astro.props as Props;
+---
+
+<article class="project-card">
+  <a href={link} class="project-card-link">
+    <div class="project-thumb" aria-hidden="true">
+      <div class="project-thumb-pill">Case study</div>
+    </div>
+
+    <div class="project-content">
+      <h3 class="project-title">{title}</h3>
+      <p class="project-description">{description}</p>
+
+      <div class="project-meta">
+        {role && <span class="tag">{role}</span>}
+        {year && <span class="tag">{year}</span>}
+      </div>
+
+      <div class="project-cta">
+        <Button variant="secondary">View project</Button>
+      </div>
+    </div>
+  </a>
+</article>
+
+<style>
+  .project-card {
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background-color: #f5f2ec;
+    overflow: hidden;
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .project-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+    border-color: rgba(124, 58, 237, 0.45);
+  }
+
+  .project-thumb {
+    min-height: 160px;
+    background: radial-gradient(circle at 16% 0%, #f97316, #7c3aed 40%, #111827 100%);
+    position: relative;
+  }
+
+  .project-thumb-pill {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 0.45rem 0.85rem;
+    border-radius: var(--radius-md);
+    background-color: rgba(250, 249, 246, 0.9);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .project-content {
+    padding: 1.4rem 1.4rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  .project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-cta {
+    margin-top: 0.8rem;
+  }
+</style>
+

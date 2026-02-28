@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+
+<Layout
+  title="Projects – Shreya V Holla"
+  description="Selected projects by Shreya V Holla – digital products, interfaces, and experiments."
+>
+  <section class="section" aria-labelledby="projects-heading">
+    <div class="container stack-lg">
+      <header>
+        <p class="hero-kicker">Selected work</p>
+        <h1 id="projects-heading" class="section-heading">Projects</h1>
+        <p class="section-subtext">
+          A small, curated set of placeholder projects. Replace these with your real
+          work—case studies, experiments, and shipped products.
+        </p>
+      </header>
+
+      <div class="projects-grid">
+        <ProjectCard
+          title="Studio Aurora – Design system for a calm productivity app"
+          description="A modular design system with typography-first layouts, motion guidelines, and a flexible token architecture."
+          link="https://example.com/project-1"
+          role="Product design · Systems"
+          year="2025"
+        />
+
+        <ProjectCard
+          title="Commonplace – Minimal reading interface"
+          description="A distraction-free reading experience focused on generous margins, typographic rhythm, and subtle interaction."
+          link="https://example.com/project-2"
+          role="UI design · Frontend"
+          year="2025"
+        />
+
+        <ProjectCard
+          title="Signals – Weekly newsletter brand"
+          description="Naming, visual identity, and a compact landing page for a newsletter about design, code, and creativity."
+          link="https://example.com/project-3"
+          role="Brand · Web"
+          year="2024"
+        />
+
+        <ProjectCard
+          title="Palette – Tiny color tool"
+          description="An experimental web tool for collecting, comparing, and exporting color palettes for digital work."
+          link="https://example.com/project-4"
+          role="Experiment"
+          year="2024"
+        />
+      </div>
+    </div>
+  </section>
+</Layout>
+

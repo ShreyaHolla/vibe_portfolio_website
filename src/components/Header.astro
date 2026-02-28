@@ -1,0 +1,186 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/projects', label: 'Projects' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="header-logo">
+      <span class="header-logo-mark"></span>
+      <span class="header-logo-text">Shreya V Holla</span>
+    </a>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      data-nav-toggle
+    >
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Primary" data-nav>
+      <ul class="nav-list">
+        {navLinks.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={`nav-link ${currentPath === item.href ? 'nav-link--active' : ''}`}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Simple mobile nav toggle
+  if (typeof window !== 'undefined') {
+    const header = document.querySelector('.site-header');
+    const toggle = header?.querySelector('[data-nav-toggle]');
+    const nav = header?.querySelector('[data-nav]');
+
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('site-nav--open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(12px);
+    background-color: rgba(250, 249, 246, 0.9);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.9rem;
+  }
+
+  .header-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: border-color 150ms ease, transform 150ms ease;
+  }
+
+  .header-logo:hover {
+    border-color: var(--color-border);
+    transform: translateY(-1px);
+  }
+
+  .header-logo-mark {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 0%, #fbd5ff, #7c3aed);
+  }
+
+  .header-logo-text {
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    padding-block: 0.25rem;
+    border-bottom: 1px solid transparent;
+    transition: color 150ms ease, border-color 150ms ease, transform 150ms ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-text);
+    border-color: var(--color-border);
+    transform: translateY(-1px);
+  }
+
+  .nav-link--active {
+    color: var(--color-text);
+    border-color: var(--color-accent);
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background-color: rgba(250, 249, 246, 0.9);
+    cursor: pointer;
+  }
+
+  .nav-toggle-line {
+    width: 1.1rem;
+    height: 1.5px;
+    border-radius: 999px;
+    background-color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .nav-toggle {
+      display: none;
+    }
+
+    .site-nav {
+      display: block;
+    }
+  }
+
+  /* Mobile menu state */
+
+  .site-nav--open {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    display: block;
+    background-color: rgba(250, 249, 246, 0.98);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-nav--open .nav-list {
+    padding: 0.75rem 1.5rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+</style>
+

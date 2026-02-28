@@ -1,0 +1,55 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  id?: string;
+}
+
+const { id = 'newsletter' } = Astro.props as Props;
+---
+
+<section id={id} class="section">
+  <div class="container surface newsletter-layout" aria-labelledby="newsletter-title">
+    <div>
+      <p class="hero-kicker">Newsletter</p>
+      <h2 id="newsletter-title" class="section-heading">Join the newsletter</h2>
+      <p class="section-subtext">
+        Weekly insights on design, code, and creativity. No noise, just thoughtful
+        signals from the studio.
+      </p>
+    </div>
+
+    <form
+      class="newsletter-form"
+      action="https://formspree.io/f/YOUR_FORM_ID"
+      method="POST"
+    >
+      <label class="sr-only" for="newsletter-email">Email address</label>
+
+      <div class="newsletter-fields">
+        <input
+          id="newsletter-email"
+          class="input"
+          type="email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder="you@example.com"
+        />
+        <Button type="submit">Subscribe</Button>
+      </div>
+
+      <p class="newsletter-note">
+        By subscribing, you agree to receive occasional emails. Unsubscribe anytime.
+      </p>
+    </form>
+  </div>
+</section>
+
+<style>
+  .newsletter-note {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+  }
+</style>
+
